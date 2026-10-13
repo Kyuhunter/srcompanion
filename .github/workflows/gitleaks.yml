@@ -1,0 +1,26 @@
+# .github/workflows/gitleaks.yml
+name: Gitleaks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *" # täglich um 4 Uhr UTC
+
+permissions:
+  contents: read
+  pull-requests: write # damit gitleaks Kommentare im PR hinterlassen kann
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # volle Historie, sonst werden alte Commits nicht geprüft
+
+      - uses: gitleaks/gitleaks-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
