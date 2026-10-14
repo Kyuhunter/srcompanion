@@ -1,0 +1,3 @@
+CREATE TABLE clock_log_entry (
+    id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY
+);

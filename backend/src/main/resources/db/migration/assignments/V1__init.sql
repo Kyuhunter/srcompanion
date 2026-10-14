@@ -1,0 +1,3 @@
+CREATE TABLE assignment (
+    id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY
+);

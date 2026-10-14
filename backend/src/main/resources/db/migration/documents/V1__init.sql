@@ -1,0 +1,3 @@
+CREATE TABLE document (
+    id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY
+);
