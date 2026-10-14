@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: backend
+  config:
+    import: optional:file:../deploy/.env.local[.properties]
+  datasource:
+    url: jdbc:postgresql://localhost:5432/srcompanion
+    username: postgres
+    password: ${POSTGRES_PASSWORD}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
